@@ -2,7 +2,14 @@
   "name": "dsh-web-search-linkup",
   "version": "0.2.0",
   "description": "Linkup /search provider for the DeepSeek Harness web capability seam (ctx.web)",
-  "keywords": ["deepseek-harness", "dsh", "plugin", "web-search", "linkup", "search"],
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "web-search",
+    "linkup",
+    "search"
+  ],
   "type": "module",
   "main": "./lib/index.js",
   "exports": {
@@ -10,9 +17,27 @@
     "./cordis.patch.yml": "./cordis.patch.yml",
     "./package.json": "./package.json"
   },
-  "files": ["lib", "cordis.patch.yml", "README.md", "LICENSE"],
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
   "license": "MIT",
-  "engines": { "node": ">=22" },
-  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
-  "scripts": { "test": "node --test" }
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sotirov-petya/dsh-web-search-linkup.git"
+  },
+  "author": "Petya Sotirov"
 }

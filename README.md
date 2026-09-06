@@ -65,3 +65,9 @@ npm test
     searchProvider: deepseek-official
     fetchProvider: http
 ```
+
+## Notes
+
+- **Empty results throw** (`WEB_PROVIDER_ERROR`) rather than returning an empty list — following the shipped DeepSeek provider's precedent, a search that found nothing says so loudly. (The Brave community plugin returns `[]` instead; either is seam-legal.)
+- The bundled patch sets **only** `searchProvider` on the `web` row — patch entries replace the whole `config` object, so we deliberately leave `fetchProvider` to the host defaults / `$DSH_WEB_FETCH_PROVIDER` / your own patch layer.
+- `apiKeyEnv` must match the host credential-ref grammar (`[A-Za-z_][A-Za-z0-9_]*`); anything else makes the provider unavailable instead of risking an arbitrary Bearer secret.

@@ -1,6 +1,13 @@
 # dsh-web-search-linkup bundle patch: mounts the Linkup provider and selects it
 # for the built-in web_search tool. Applied automatically when installed via
 # `dsh plugin --profile web add <source>` (package.json dsh.bundle.patch).
+#
+# NOTE on patch semantics: an `id:`-matched patch REPLACES the row's whole
+# `config` object. We therefore set ONLY searchProvider here and never touch
+# fetchProvider — the host's own defaults / $DSH_WEB_FETCH_PROVIDER / any user
+# fetch selection stay untouched. If your deployment configured the `web` row
+# with extra keys beyond searchProvider, re-add them in your own patch layer.
+#
 # A store key is required: save LINKUP_API_KEY via the Models page (credentials
 # service) or export it in the environment that starts dsh. Never commit a key.
 - insert:
@@ -14,4 +21,3 @@
   name: '@deepseek-ai/dsh-web'
   config:
     searchProvider: linkup
-    fetchProvider: http
